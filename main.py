@@ -38,5 +38,22 @@ plt.figure(figsize=(9, 7))
 sb.heatmap(df[main_cols].corr(), annot=True, fmt=".2f", cmap="coolwarm", vmin=1, vmax=1, linewidths=0.5)
 plt.title("Correlation Matrix Fitur")
 
+# membuat box plot untuk melihat outlier
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+# box plot age
+sb.boxplot(y="Age", data=df, ax=axes[0])
+axes[0].set_title("Boxplot Umur")
+axes[0].set_ylabel("Umur")
+
+# box plot pengalaman kerja
+sb.boxplot(y="Work_Experience", data=df, ax=axes[1])
+axes[1].set_title("Boxplot Pengalaman Keja")
+axes[1].set_ylabel("Pengalaman Keja")
+
+# box plot family
+sb.boxplot(y="Family_Size", data=df, ax=axes[2])
+axes[2].set_title("Boxplot Jumlah Keluarga")
+axes[2].set_ylabel("Jumlah Keluarga")
+
 plt.tight_layout()
 plt.show()
