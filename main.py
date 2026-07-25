@@ -21,5 +21,15 @@ axes[1].set_title("Histogram Pengalaman Kerja")
 sb.histplot(df["Family_Size"], kde=True, ax=axes[2])
 axes[2].set_title("Histogram Jumlah Keluarga")
 
+# Pembuatan Bar Chart
+prof_cols = [c for c in df.columns if c.startswith("Profession_")]
+prof_counts = df[prof_cols].sum().sort_values(ascending=True)
+prof_names = [c.replace("Profession_","") for c in prof_counts.index]
+
+plt.figure(figsize=(10, 5))
+bars = plt.barh(prof_names, prof_counts.values)
+plt.title("Bar Chart Pelanggan Sesuai Profesi")
+plt.xlabel("Jumlah Pelanggan")
+
 plt.tight_layout()
 plt.show()
