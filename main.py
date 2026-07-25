@@ -31,5 +31,12 @@ bars = plt.barh(prof_names, prof_counts.values)
 plt.title("Bar Chart Pelanggan Sesuai Profesi")
 plt.xlabel("Jumlah Pelanggan")
 
+# membuat matriks korelasi
+main_cols = ["Gender", "Ever_Married", "Age", "Graduated", "Work_Experience", "Spending_Score", "Family_Size"]
+
+plt.figure(figsize=(9, 7))
+sb.heatmap(df[main_cols].corr(), annot=True, fmt=".2f", cmap="coolwarm", vmin=1, vmax=1, linewidths=0.5)
+plt.title("Correlation Matrix Fitur")
+
 plt.tight_layout()
 plt.show()
