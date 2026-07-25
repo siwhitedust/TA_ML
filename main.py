@@ -55,5 +55,10 @@ sb.boxplot(y="Family_Size", data=df, ax=axes[2])
 axes[2].set_title("Boxplot Jumlah Keluarga")
 axes[2].set_ylabel("Jumlah Keluarga")
 
+# membuat Pairplot
+pp_cols = ["Age", "Work_Experience", "Spending_Score", "Family_Size"]
+pair_grid = sb.pairplot(df[pp_cols], hue="Spending_Score", diag_kind="kde")
+pair_grid.fig.suptitle("Pairplot dari data numerik Utama")
+
 plt.tight_layout()
 plt.show()
